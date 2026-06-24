@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EntreLaços — Conectando mães, fortalecendo famílias</title>
+<meta name="description" content="EntreLaços é uma plataforma que conecta mães atípicas, solteiras e em situação de vulnerabilidade a uma rede de apoio, oportunidades e recursos para o desenvolvimento de seus filhos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink-wash: #FDE7EF;
+    --pink-soft: #FFB5C0;
+    --pink-main: #FF5E76;
+    --ink: #413E51;
+    --cream: #FFFBF9;
+    --ink-soft: #6B6578;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Thread signature element ---------- */
+  .thread-rail {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .thread-rail svg { position: sticky; top: 0; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255, 251, 249, 0.82);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(65, 62, 81, 0.07);
+  }
+  .nav-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand img { height: 30px; width: auto; }
+  .brand span {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink);
+  }
+  nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  nav a {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    transition: color 0.2s ease;
+  }
+  nav a:hover { color: var(--pink-main); }
+
+  @media (max-width: 720px) {
+    nav ul { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: 168px 0 100px;
+    background: linear-gradient(180deg, var(--pink-wash) 0%, var(--cream) 100%);
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items: center;
+  }
+  @media (max-width: 880px) {
+    .hero-grid { grid-template-columns: 1fr; }
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--pink-main);
+    margin-bottom: 22px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--pink-main);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 5.4vw, 4.1rem);
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--pink-main);
+  }
+
+  .hero p.lead {
+    font-size: 1.12rem;
+    color: var(--ink-soft);
+    max-width: 480px;
+    line-height: 1.6;
+    margin-bottom: 34px;
+  }
+
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .btn-primary {
+    background: var(--pink-main);
+    color: #fff;
+    box-shadow: 0 10px 24px -8px rgba(255, 94, 118, 0.55);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 28px -8px rgba(255, 94, 118, 0.6); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid rgba(65, 62, 81, 0.18);
+  }
+  .btn-ghost:hover { border-color: var(--pink-main); color: var(--pink-main); }
+
+  /* Phone mockup */
+  .phone-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .phone {
+    width: 268px;
+    height: 546px;
+    background: var(--ink);
+    border-radius: 42px;
+    padding: 10px;
+    box-shadow: 0 40px 70px -30px rgba(65, 62, 81, 0.45);
+    position: relative;
+    transform: rotate(3deg);
+  }
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    background: var(--pink-wash);
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+  }
+  .phone-status {
+    background: var(--pink-main);
+    padding: 16px 18px 10px;
+    color: #fff;
+  }
+  .phone-status .greet { font-size: 0.95rem; font-weight: 700; }
+  .phone-status .sub { font-size: 0.7rem; opacity: 0.85; margin-top: 2px; }
+  .phone-body { padding: 14px; }
+  .phone-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 14px -8px rgba(65,62,81,0.12);
+  }
+  .phone-card .row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .phone-avatar { width: 24px; height: 24px; border-radius: 50%; background: var(--pink-soft); flex-shrink: 0; }
+  .phone-line { height: 7px; border-radius: 4px; background: rgba(65,62,81,0.1); }
+  .phone-line.w60 { width: 60%; }
+  .phone-line.w80 { width: 80%; }
+  .phone-line.w40 { width: 40%; }
+  .phone-pill {
+    display: inline-block;
+    font-size: 0.55rem;
+    font-weight: 700;
+    background: var(--pink-wash);
+    color: var(--pink-main);
+    padding: 3px 8px;
+    border-radius: 20px;
+    margin-top: 6px;
+  }
+  .phone-fab {
+    position: absolute;
+    bottom: 64px; right: 16px;
+    width: 38px; height: 38px;
+    border-radius: 12px;
+    background: var(--pink-main);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 1.1rem; font-weight: 700;
+    box-shadow: 0 8px 20px -6px rgba(255,94,118,0.6);
+  }
+  .phone-nav {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 52px;
+    background: #fff;
+    border-top: 1px solid rgba(65,62,81,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .phone-nav .dot { width: 16px; height: 16px; border-radius: 5px; background: rgba(65,62,81,0.14); }
+  .phone-nav .dot.active { background: var(--pink-main); }
+
+  .float-badge {
+    position: absolute;
+    background: #fff;
+    border-radius: 14px;
+    padding: 10px 14px;
+    box-shadow: 0 16px 30px -14px rgba(65,62,81,0.3);
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .float-badge .ico {
+    width: 26px; height: 26px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+  }
+  .badge-1 { top: 8%; left: -6%; }
+  .badge-1 .ico { background: var(--pink-wash); }
+  .badge-2 { bottom: 10%; right: -8%; }
+  .badge-2 .ico { background: #EAF6EF; }
+  @media (max-width: 880px) {
+    .badge-1, .badge-2 { display: none; }
+  }
+
+  /* ---------- Section shared ---------- */
+  section { position: relative; padding: 96px 0; }
+  .section-head { max-width: 620px; margin-bottom: 56px; }
+  .section-head .eyebrow { margin-bottom: 16px; }
+  .section-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); color: var(--ink); }
+  .section-head p { color: var(--ink-soft); font-size: 1.02rem; margin-top: 14px; line-height: 1.6; }
+
+  /* ---------- Problem section ---------- */
+  .problem-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(65,62,81,0.08);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  @media (max-width: 720px) { .problem-list { grid-template-columns: 1fr; } }
+  .problem-item {
+    background: var(--cream);
+    padding: 28px 30px;
+  }
+  .problem-item .num {
+    font-family: 'Fraunces', serif;
+    font-size: 0.85rem;
+    color: var(--pink-main);
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .problem-item p { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.55; }
+  .problem-item strong { color: var(--ink); font-weight: 700; }
+
+  /* ---------- Features ---------- */
+  .features { background: var(--pink-wash); }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 720px) { .feature-grid { grid-template-columns: 1fr; } }
+
+  .feature-card {
+    background: var(--cream);
+    border-radius: 22px;
+    padding: 32px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 40px -24px rgba(65,62,81,0.25);
+  }
+  .feature-icon {
+    width: 52px; height: 52px;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .feature-card h3 {
+    font-size: 1.28rem;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .feature-card p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .feature-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(65,62,81,0.06);
+    color: var(--ink-soft);
+  }
+
+  .ic-bg-1 { background: #FFE3E9; }
+  .ic-bg-2 { background: #E7EBFF; }
+  .ic-bg-3 { background: #E6F4EE; }
+  .ic-bg-4 { background: #FFF1DC; }
+  .ic-bg-5 { background: #F3E8FF; }
+
+  /* ---------- Premium ---------- */
+  .premium {
+    background: linear-gradient(135deg, #413E51 0%, #5A5468 100%);
+    border-radius: 32px;
+    margin: 0 auto;
+    max-width: 1064px;
+    padding: 64px 56px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .premium::before {
+    content: '';
+    position: absolute;
+    top: -40%; right: -10%;
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(255,215,0,0.14), transparent 70%);
+  }
+  .premium-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 820px) { .premium-grid { grid-template-columns: 1fr; } .premium { padding: 48px 28px; } }
+
+  .premium-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,215,0,0.14);
+    color: #FFD700;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .premium h2 { font-size: 2rem; color: #fff; margin-bottom: 16px; }
+  .premium p.lead { color: rgba(255,255,255,0.75); line-height: 1.6; max-width: 420px; }
+
+  .premium-benefits { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .premium-benefits li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.92rem; color: rgba(255,255,255,0.88); }
+  .premium-benefits .check {
+    width: 20px; height: 20px; flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(255,215,0,0.18);
+    color: #FFD700;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem;
+    margin-top: 2px;
+  }
+
+  .plan-cards { display: flex; flex-direction: column; gap: 12px; }
+  .plan-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .plan-card.featured {
+    border-color: #FFD700;
+    background: rgba(255,215,0,0.08);
+  }
+  .plan-name { font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
+  .plan-badge {
+    font-size: 0.62rem; font-weight: 700; background: #FFD700; color: #413E51;
+    padding: 2px 8px; border-radius: 20px;
+  }
+  .plan-price { text-align: right; }
+  .plan-price strong { font-size: 1.1rem; color: #FFD700; }
+  .plan-price span { display: block; font-size: 0.7rem; color: rgba(255,255,255,0.55); }
+
+  /* ---------- Tech ---------- */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 880px) { .tech-grid { grid-template-columns: repeat(2, 1fr); } }
+  .tech-item {
+    border: 1px solid rgba(65,62,81,0.1);
+    border-radius: 18px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .tech-item .glyph {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .tech-item strong { display: block; font-size: 0.92rem; margin-bottom: 4px; color: var(--ink); }
+  .tech-item span { font-size: 0.78rem; color: var(--ink-soft); }
+
+  /* ---------- Palette ---------- */
+  .palette-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .swatch {
+    flex: 1;
+    min-width: 140px;
+    border-radius: 18px;
+    padding: 22px;
+    height: 132px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .swatch .hex { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1rem; }
+  .swatch .label { font-size: 0.78rem; font-weight: 600; opacity: 0.85; }
+  .sw-1 { background: var(--pink-main); color: #fff; }
+  .sw-2 { background: var(--pink-soft); color: #5a2a33; }
+  .sw-3 { background: var(--pink-wash); color: var(--pink-main); border: 1px solid rgba(255,94,118,0.18); }
+  .sw-4 { background: var(--ink); color: #fff; }
+
+  /* ---------- Impact ---------- */
+  .impact { background: var(--ink); color: #fff; }
+  .impact .section-head h2 { color: #fff; }
+  .impact .section-head p { color: rgba(255,255,255,0.6); }
+  .impact-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 8px;
+  }
+  @media (max-width: 720px) { .impact-stats { grid-template-columns: 1fr; } }
+  .impact-stat {
+    border-left: 2px solid var(--pink-main);
+    padding-left: 20px;
+  }
+  .impact-stat .value {
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    color: var(--pink-soft);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .impact-stat p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.5; }
+
+  /* ---------- Team / credits ---------- */
+  .credit-banner {
+    background: var(--pink-wash);
+    border-radius: 28px;
+    padding: 56px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .credit-left { max-width: 460px; }
+  .credit-left .eyebrow { color: var(--pink-main); }
+  .credit-left h2 { font-size: 1.9rem; margin-bottom: 12px; }
+  .credit-left p { color: var(--ink-soft); line-height: 1.6; font-size: 0.97rem; }
+
+  .credit-logos {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .credit-logo-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 12px 28px -16px rgba(65,62,81,0.18);
+  }
+  .credit-logo-card img { height: 38px; width: auto; }
+  .credit-logo-card .meta strong { display: block; font-size: 0.85rem; color: var(--ink); }
+  .credit-logo-card .meta span { font-size: 0.74rem; color: var(--ink-soft); }
+
+  @media (max-width: 720px) {
+    .credit-banner { padding: 36px 26px; }
+    .credit-logos { flex-direction: column; align-items: flex-start; width: 100%; }
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-list { display: flex; flex-direction: column; gap: 1px; background: rgba(65,62,81,0.08); border-radius: 20px; overflow: hidden; }
+  details {
+    background: var(--cream);
+    padding: 22px 28px;
+  }
+  summary {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ink);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '+';
+    font-size: 1.4rem;
+    color: var(--pink-main);
+    font-weight: 400;
+    transition: transform 0.2s ease;
+  }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p {
+    color: var(--ink-soft);
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin-top: 14px;
+    padding-right: 20px;
+  }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta {
+    text-align: center;
+    padding: 90px 0 60px;
+  }
+  .final-cta h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 18px; }
+  .final-cta p { color: var(--ink-soft); max-width: 460px; margin: 0 auto 32px; line-height: 1.6; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid rgba(65,62,81,0.08);
+    padding: 40px 0 32px;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-brand { display: flex; align-items: center; gap: 10px; }
+  .footer-brand img { height: 24px; }
+  .footer-brand span { font-family: 'Fraunces', serif; font-weight: 600; color: var(--ink); }
+  .footer-credit {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+  .footer-credit img { height: 20px; opacity: 0.85; }
+  .footer-note { font-size: 0.76rem; color: var(--ink-soft); margin-top: 24px; text-align: center; }
+
+  /* ---------- Reveal animation ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .phone { transform: none; }
+  }
+
+  /* Focus visibility */
+  a:focus-visible, summary:focus-visible, .btn:focus-visible {
+    outline: 2px solid var(--pink-main);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <img src="logo.png" alt="Logo EntreLaços">
+      <span>EntreLaços</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#funcionalidades">App</a></li>
+        <li><a href="#premium">Premium</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal in">
+      <span class="eyebrow">Rede de apoio para mães</span>
+      <h1>Nenhuma mãe deveria <em>caminhar sozinha</em>.</h1>
+      <p class="lead">
+        O EntreLaços conecta mães atípicas, solteiras e em situação de vulnerabilidade
+        a uma comunidade de apoio, oportunidades reais e recursos para o
+        desenvolvimento de seus filhos — tudo em um só lugar.
+      </p>
+      <div class="hero-ctas">
+        <a href="#sobre" class="btn btn-primary">Conhecer o projeto</a>
+        <a href="#equipe" class="btn btn-ghost">Quem fez</a>
+      </div>
+    </div>
+
+    <div class="phone-wrap">
+      <div class="float-badge badge-1">
+        <span class="ico">📍</span> Rede de Apoio perto de você
+      </div>
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-status">
+            <div class="greet">Olá, Mariana 👋</div>
+            <div class="sub">Como você está hoje?</div>
+          </div>
+          <div class="phone-body">
+            <div class="phone-card">
+              <div class="row">
+                <div class="phone-avatar"></div>
+                <div style="flex:1">
+                  <div class="phone-line w40" style="margin-bottom:5px"></div>
+                  <div class="phone-line w60" style="height:5px"></div>
+                </div>
+              </div>
+              <div class="phone-line w80" style="margin-bottom:6px"></div>
+              <div class="phone-line w60"></div>
+              <span class="phone-pill">#Autismo</span>
+            </div>
+            <div class="phone-card">
+              <div class="row">
+                <div class="phone-avatar"></div>
+                <div style="flex:1">
+                  <div class="phone-line w40" style="margin-bottom:5px"></div>
+                  <div class="phone-line w60" style="height:5px"></div>
+                </div>
+              </div>
+              <div class="phone-line w80"></div>
+            </div>
+          </div>
+          <div class="phone-fab">+</div>
+          <div class="phone-nav">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="float-badge badge-2">
+        <span class="ico" style="background:#EAF6EF">✨</span> Espaço Sensorial
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE / PROBLEMA -->
+<section id="sobre">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">O problema</span>
+      <h2>Informação dispersa custa tempo, dinheiro e apoio.</h2>
+      <p>
+        Mães de crianças neurodivergentes, mães solteiras e mães em situação de
+        vulnerabilidade enfrentam o mesmo obstáculo: a informação certa existe,
+        mas está espalhada entre grupos de WhatsApp, redes sociais e balcões de
+        atendimento — nunca em um lugar só.
+      </p>
+    </div>
+
+    <div class="problem-list reveal">
+      <div class="problem-item">
+        <span class="num">01</span>
+        <p><strong>Apoio emocional disperso.</strong> Não existe um espaço seguro e específico para compartilhar experiências com quem entende a mesma realidade.</p>
+      </div>
+      <div class="problem-item">
+        <span class="num">02</span>
+        <p><strong>Serviços públicos difíceis de localizar.</strong> CRAS, delegacias da mulher, UPAs e ONGs muitas vezes não têm visibilidade nem proximidade clara.</p>
+      </div>
+      <div class="problem-item">
+        <span class="num">03</span>
+        <p><strong>Oportunidades de renda escondidas.</strong> Cursos gratuitos e vagas com horário flexível existem, mas raramente chegam a quem mais precisa.</p>
+      </div>
+      <div class="problem-item">
+        <span class="num">04</span>
+        <p><strong>Desenvolvimento infantil sem direção.</strong> Famílias de crianças atípicas carecem de atividades lúdicas pensadas para a real necessidade dos filhos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNCIONALIDADES -->
+<section id="funcionalidades" class="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">A solução</span>
+      <h2>Um aplicativo, quatro formas de cuidado.</h2>
+      <p>O EntreLaços reúne em quatro espaços tudo que uma mãe precisa para se sentir acompanhada — sem precisar procurar em dez lugares diferentes.</p>
+    </div>
+
+    <div class="feature-grid reveal">
+      <div class="feature-card">
+        <div class="feature-icon ic-bg-1">👩‍👩‍👧</div>
+        <h3>Comunidade</h3>
+        <p>Um feed onde mães compartilham experiências reais, publicam fotos e se conectam por tema — autismo, TDAH, maternidade solo e mais.</p>
+        <div class="feature-tags">
+          <span class="tag">Feed com fotos</span>
+          <span class="tag">Comunidades por tema</span>
+          <span class="tag">Ambiente seguro</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon ic-bg-2">💼</div>
+        <h3>Oportunidades</h3>
+        <p>Cursos gratuitos, capacitações e vagas com horário adaptado para quem precisa equilibrar trabalho e cuidado dos filhos.</p>
+        <div class="feature-tags">
+          <span class="tag">Cursos gratuitos</span>
+          <span class="tag">Vagas flexíveis</span>
+          <span class="tag">Capacitação</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon ic-bg-3">📍</div>
+        <h3>Rede de Apoio</h3>
+        <p>Mapa interativo com delegacias da mulher, CRAS, CREAS, UPAs, defensoria pública e ONGs próximas — organizados por categoria.</p>
+        <div class="feature-tags">
+          <span class="tag">Mapa em tempo real</span>
+          <span class="tag">Filtro por categoria</span>
+          <span class="tag">Dados reais</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon ic-bg-4">🧩</div>
+        <h3>Espaço Sensorial</h3>
+        <p>Vídeos e atividades interativas pensadas para crianças neurodivergentes, organizadas por comunicação, emoções, sensorial e cognitivo.</p>
+        <div class="feature-tags">
+          <span class="tag">Foco em TEA</span>
+          <span class="tag">Avaliado por mães</span>
+          <span class="tag">Atividades guiadas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREMIUM -->
+<section id="premium">
+  <div class="container">
+    <div class="premium reveal">
+      <div class="premium-grid">
+        <div>
+          <span class="premium-badge">✨ EntreLaços Premium</span>
+          <h2>Mais cuidado, quando você precisar.</h2>
+          <p class="lead">Para quem quer ir além do gratuito: acesso facilitado a profissionais de saúde e capacitação profissional sem fila de espera.</p>
+
+          <ul class="premium-benefits">
+            <li><span class="check">✓</span> Consultas médicas facilitadas com rede parceira</li>
+            <li><span class="check">✓</span> Telemedicina — atendimento online sem sair de casa</li>
+            <li><span class="check">✓</span> Cursos profissionalizantes com certificado</li>
+            <li><span class="check">✓</span> Conteúdos exclusivos de apoio e desenvolvimento</li>
+          </ul>
+        </div>
+
+        <div class="plan-cards">
+          <div class="plan-card featured">
+            <div class="plan-name">Anual <span class="plan-badge">Economize 38%</span></div>
+            <div class="plan-price"><strong>R$ 369,90</strong><span>por ano</span></div>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">Mensal</div>
+            <div class="plan-price"><strong>R$ 49,90</strong><span>por mês</span></div>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">Day Use</div>
+            <div class="plan-price"><strong>R$ 15,00</strong><span>por dia</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH -->
+<section id="tecnologia">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Por dentro</span>
+      <h2>Construído com tecnologia sólida.</h2>
+      <p>Uma base técnica pensada para crescer com segurança — do protótipo ao app que mães de verdade usam todos os dias.</p>
+    </div>
+
+    <div class="tech-grid reveal">
+      <div class="tech-item">
+        <span class="glyph">📱</span>
+        <strong>Kotlin + Compose</strong>
+        <span>Interface nativa Android</span>
+      </div>
+      <div class="tech-item">
+        <span class="glyph">🔐</span>
+        <strong>Firebase Auth</strong>
+        <span>Login seguro com Google</span>
+      </div>
+      <div class="tech-item">
+        <span class="glyph">🗄️</span>
+        <strong>Firestore</strong>
+        <span>Dados em tempo real</span>
+      </div>
+      <div class="tech-item">
+        <span class="glyph">🖼️</span>
+        <strong>Supabase Storage</strong>
+        <span>Upload de fotos e mídia</span>
+      </div>
+      <div class="tech-item">
+        <span class="glyph">🗺️</span>
+        <strong>MapLibre</strong>
+        <span>Mapa da Rede de Apoio</span>
+      </div>
+      <div class="tech-item">
+        <span class="glyph">🌍</span>
+        <strong>OpenStreetMap</strong>
+        <span>Dados geográficos abertos</span>
+      </div>
+      <div class="tech-item">
+        <span class="glyph">🎨</span>
+        <strong>Material Design 3</strong>
+        <span>Sistema visual consistente</span>
+      </div>
+      <div class="tech-item">
+        <span class="glyph">☁️</span>
+        <strong>Arquitetura em nuvem</strong>
+        <span>Escalável desde o MVP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PALETTE -->
+<section id="identidade">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Identidade visual</span>
+      <h2>Uma paleta pensada para acolher.</h2>
+      <p>Cores suaves, sem ser infantilizadas — feitas para transmitir cuidado, confiança e proximidade.</p>
+    </div>
+
+    <div class="palette-row reveal">
+      <div class="swatch sw-1">
+        <span class="label">Rosa principal</span>
+        <span class="hex">#FF5E76</span>
+      </div>
+      <div class="swatch sw-2">
+        <span class="label">Rosa suave</span>
+        <span class="hex">#FFB5C0</span>
+      </div>
+      <div class="swatch sw-3">
+        <span class="label">Rosa claro</span>
+        <span class="hex">#FDE7EF</span>
+      </div>
+      <div class="swatch sw-4">
+        <span class="label">Tinta escura</span>
+        <span class="hex">#413E51</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACTO -->
+<section class="impact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Impacto social</span>
+      <h2>Tecnologia que fortalece laços reais.</h2>
+      <p>O EntreLaços nasceu para reduzir distância — entre quem precisa de apoio e quem pode oferecê-lo.</p>
+    </div>
+
+    <div class="impact-stats reveal">
+      <div class="impact-stat">
+        <div class="value">4 em 1</div>
+        <p>Comunidade, oportunidades, rede de apoio e desenvolvimento infantil em um único app.</p>
+      </div>
+      <div class="impact-stat">
+        <div class="value">100%</div>
+        <p>Focado em mães atípicas, solteiras e em situação de vulnerabilidade social.</p>
+      </div>
+      <div class="impact-stat">
+        <div class="value">MVP</div>
+        <p>Validado, funcional e pronto para chegar às primeiras usuárias reais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPE / CRÉDITOS -->
+<section id="equipe">
+  <div class="container">
+    <div class="credit-banner reveal">
+      <div class="credit-left">
+        <span class="eyebrow">Quem fez</span>
+        <h2>Um projeto, dois propósitos.</h2>
+        <p>
+          O EntreLaços foi idealizado e desenvolvido pela equipe <strong>Arandu LABS</strong>
+          como proposta para o <strong>Desafio Liga Jovem 4 (DLJ4)</strong>, iniciativa do
+          Sistema SEBRAE de incentivo ao empreendedorismo jovem com soluções de impacto social.
+        </p>
+      </div>
+      <div class="credit-logos">
+        <div class="credit-logo-card">
+          <img src="arandu.png" alt="Logo Arandu LABS">
+          <div class="meta">
+            <strong>Arandu LABS</strong>
+            <span>Equipe desenvolvedora</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2>Perguntas que recebemos depois do vídeo.</h2>
+      <p>Reunimos aqui as perguntas mais comuns de quem assistiu ao nosso pitch.</p>
+    </div>
+
+    <div class="faq-list reveal">
+      <details open>
+        <summary>O EntreLaços já está disponível para baixar?</summary>
+        <p>O projeto está na fase de MVP finalizado, em validação com as primeiras usuárias. A disponibilização pública para download será anunciada em nossos canais.</p>
+      </details>
+      <details>
+        <summary>O app é gratuito?</summary>
+        <p>Sim. As funcionalidades principais — Comunidade, Oportunidades, Rede de Apoio e Espaço Sensorial — são totalmente gratuitas. O Premium é um plano opcional com benefícios extras.</p>
+      </details>
+      <details>
+        <summary>Para quem o EntreLaços foi feito?</summary>
+        <p>Para mães atípicas, solteiras e em situação de vulnerabilidade social, com foco especial em mães de crianças neurodivergentes que buscam apoio, oportunidades e recursos.</p>
+      </details>
+      <details>
+        <summary>Os pontos no mapa de Rede de Apoio são reais?</summary>
+        <p>Sim. O mapa reúne delegacias da mulher, CRAS, CREAS, UPAs, defensoria pública e ONGs com endereços reais, organizados por categoria para facilitar o acesso.</p>
+      </details>
+      <details>
+        <summary>Quem desenvolveu o projeto?</summary>
+        <p>O EntreLaços é desenvolvido pela equipe Arandu LABS como proposta para o Desafio Liga Jovem 4 (DLJ4) do Sistema SEBRAE.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Quer acompanhar os próximos passos?</h2>
+    <p>Siga o projeto e seja avisada quando o EntreLaços estiver disponível para todas.</p>
+    <a href="#equipe" class="btn btn-primary">Conhecer a equipe Arandu LABS</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Logo EntreLaços">
+        <span>EntreLaços</span>
+      </div>
+      <div class="footer-credit">
+        Desenvolvido por
+        <img src="arandu.png" alt="Logo Arandu LABS">
+      </div>
+    </div>
+    <p class="footer-note">Projeto desenvolvido para o Desafio Liga Jovem 4 (DLJ4) — Sistema SEBRAE © 2026</p>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
