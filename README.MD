@@ -1,46 +1,79 @@
-# Site EntreLaços — Como publicar
+# 🌐 EntreLaços — Site
 
-## Arquivos necessários
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Pronto%20para%20publicar-pink?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Tipo-One%20Page-ff69b4?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Stack-HTML%20%2B%20CSS-e91e63?style=for-the-badge">
+</p>
 
-Coloque estes 3 arquivos na **mesma pasta**:
+<p align="center">
+  <b>A página institucional do EntreLaços — feita para tirar dúvidas de quem assistiu ao pitch.</b>
+</p>
 
+---
+
+## 🌸 Sobre
+
+Esta é a landing page one-page do **EntreLaços**, pensada para ficar na bio do app
+e responder, em poucos minutos de leitura, tudo que o vídeo pitch não teve tempo
+de explicar.
+
+Sem frameworks, sem build, sem dependências — apenas `index.html`, pronto para
+subir em qualquer lugar.
+
+---
+
+## 🧩 O que tem na página
+
+| Seção | Conteúdo |
+|---|---|
+| 🌅 **Hero** | Frase de impacto + mockup do app |
+| 💭 **Sobre / Problema** | As 4 dores reais que o app resolve |
+| 🧠 **Funcionalidades** | Comunidade, Oportunidades, Rede de Apoio, Espaço Sensorial |
+| 💎 **Premium** | Benefícios e os 3 planos com valores |
+| 🛠️ **Tecnologia** | Stack usada na construção do app |
+| 🎨 **Identidade Visual** | A paleta de cores oficial |
+| 🌎 **Impacto Social** | O propósito por trás do projeto |
+| 🏆 **Equipe** | Crédito à Arandu LABS e ao DLJ4 |
+| ❓ **FAQ** | Respostas às dúvidas do vídeo pitch |
+
+---
+
+## 📦 Arquivos
+
+```text
+site/
+├── index.html      → a página inteira
+├── logo.png         → logo do EntreLaços (fundo transparente)
+└── arandu.png       → logo da Arandu LABS (fundo transparente)
 ```
-index.html   ← já incluso
-logo.png     ← logo do EntreLaços (fundo transparente)
-arandu.png   ← logo da Arandu LABS (fundo transparente)
-```
 
-Sem esses dois PNGs na pasta, os espaços das logos no cabeçalho, na seção
-"Quem fez" e no rodapé aparecem quebrados (ícone de imagem ausente).
+> 💡 Os três arquivos precisam estar **na mesma pasta** para as logos aparecerem corretamente.
 
-## Onde editar texto
+---
 
-Tudo está em `index.html`, em português, sem nenhum framework — é só abrir
-no bloco de notas ou em qualquer editor de código e editar o texto entre as
-tags. Não precisa rodar nenhum build.
+## 🎨 Identidade Visual
 
-## Como publicar gratuitamente
+| Cor | Hex |
+|---|---|
+| 🩷 Rosa Principal | `#FF5E76` |
+| 🌸 Rosa Suave | `#FFB5C0` |
+| 🤍 Rosa Claro | `#FDE7EF` |
+| 🖤 Tinta Escura | `#413E51` |
 
-**Opção mais simples — GitHub Pages**, já que o projeto já está no GitHub:
+Tipografia: **Fraunces** (títulos) + **Inter** (corpo de texto).
 
-1. Suba os 3 arquivos (`index.html`, `logo.png`, `arandu.png`) para uma pasta
-   `/docs` no repositório, ou para um repositório novo só para o site.
-2. No GitHub, vá em **Settings → Pages**.
-3. Em "Source", selecione a branch `main` e a pasta `/docs` (ou `/root`).
-4. Salve. Em alguns minutos o site estará no ar em um link como:
-   `https://meozofcw.github.io/EntreLacos/`
+---
 
-Esse link é o que você coloca na bio do Instagram/perfil do app.
+## 🏆 Projeto Desenvolvido Para
 
-## Seções do site
+**Desafio Liga Jovem 4 (DLJ4) — SEBRAE**
 
-1. **Hero** — frase de impacto + mockup do app
-2. **Sobre / Problema** — 4 dores que o app resolve
-3. **Funcionalidades** — Comunidade, Oportunidades, Rede de Apoio, Espaço Sensorial
-4. **Premium** — benefícios e os 3 planos
-5. **Tecnologia** — stack usada
-6. **Identidade visual** — paleta de cores
-7. **Impacto social**
-8. **Equipe** — crédito à Arandu LABS e ao DLJ4
-9. **FAQ** — respostas às dúvidas do vídeo pitch
-10. **CTA final + rodapé**
+Desenvolvido pela equipe **Arandu LABS**
+
+---
+
+<p align="center">
+  <b>💕 EntreLaços</b><br>
+  Tecnologia conectando pessoas, criando oportunidades e fortalecendo laços.
+</p>
